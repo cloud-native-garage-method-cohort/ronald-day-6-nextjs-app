@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ronald-chan-day-6-nextjs-app
+    app.kubernetes.io/instance: ronald-chan-pipeline-from-scratch
+    app.kubernetes.io/name: ronald-chan-day-6-nextjs-app
+  name: ronald-chan-day-6-nextjs-app-service
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app.kubernetes.io/instance: ronald-chan-pipeline-from-scratch
+    app.kubernetes.io/name: ronald-chan-day-6-nextjs-app
+  sessionAffinity: None
+  type: ClusterIP
